@@ -48,13 +48,14 @@ function dataComplete(event) {
     console.log("colors have loaded");
     let colorData = JSON.parse(event.target.responseText);
     console.log("colorData", colorData);
+    showData(colorData);
 }
 
 function showData(taco){
     let colorDiv = document.getElementById("all-my-colors");
     let colorData = '';
 
-    for(item in taco){
+    for(let item in taco){
         let colorItem = taco[item];
         colorData += `<div><h2>${colorItem.color}: ${colorItem.value}</h2></div>`
     };
@@ -69,9 +70,6 @@ function dataFail(event) {
 
 dataRequest.open("GET", "color.json");
 dataRequest.send();
-
-
-
 
 
 
